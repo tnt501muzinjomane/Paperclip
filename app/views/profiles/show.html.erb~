@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+<br />
+<%= render 'upload' %>
+<br />
+<p>
+  <strong>Name:</strong>
+  <%= @profile.name %>
+</p>
+
+<p>
+  <strong>Surname:</strong>
+  <%= @profile.surname %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @profile.age %>
+</p>
+
+<p>
+ <strong>Atachment:</strong>
+ <% if @profile.image? %>
+   <%= image_tag @profile.image.url(:large) %>
+   <br />
+ <%= link_to @profile.image.url, @profile.image.url, :target => 'blank' %>
+ <% end %>
+</p>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>
+
+<% # jquery upload template # %>
+<script id="template-upload" type="text/x-tmpl"><div class="upload">{%=o.name%}<div class="progress"><div class="bar" style="width: 0%"></div></div></div></script>
+
